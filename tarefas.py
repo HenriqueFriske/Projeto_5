@@ -1,29 +1,28 @@
 tarefas = []
 
-def adicionar():
-    desc = input("Descrição: ")
+def criar_tarefa():
+    descricao = input("Descrição: ")
     status = input("Status (Pendente/Concluído): ")
-    tarefas.append({"desc": desc, "status": status})
+    tarefas.append({"descricao": descricao, "status": status})
 
-def listar():
-    for t in tarefas:
-        print("Desc:", t["desc"], "- Status:", t["status"])
+def listar_tarefas():
+    for tarefa in tarefas:
+        print("Descrição:", tarefa["descricao"], "- Status:", tarefa["status"])
 
-def concluir():
-    d = input("Desc para concluir: ")
-    for t in tarefas:
-        if t["desc"] == d:
-            t["status"] = "Concluído"
+def concluir_tarefa():
+    descricao = input("Descrição da tarefa a concluir: ")
+    for tarefa in tarefas:
+        if tarefa["descricao"] == descricao:
+            tarefa["status"] = "Concluído"
 
 while True:
     print("1-Adicionar 2-Listar 3-Concluir 4-Sair")
-    o = input("Escolha: ")
-    if o == "1":
-        adicionar()
-    elif o == "2":
-        listar()
-    elif o == "3":
-        concluir()
-    elif o == "4":
+    opcao = input("Escolha: ")
+    if opcao == "1":
+        criar_tarefa()
+    elif opcao == "2":
+        listar_tarefas()
+    elif opcao == "3":
+        concluir_tarefa()
+    elif opcao == "4":
         break
-
