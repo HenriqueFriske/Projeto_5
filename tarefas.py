@@ -1,17 +1,24 @@
+class Tarefa:
+    def __init__(self, descricao, status="Pendente"):
+        self.descricao = descricao
+        self.status = status
+
+    def concluir(self):
+        self.status = "Concluído"
+
 tarefas = []
 
-
 def criar_tarefa(descricao, status):
-    tarefas.append({"descricao": descricao, "status": status})
+    tarefas.append(Tarefa(descricao, status))
 
 def listar_tarefas():
     for tarefa in tarefas:
-        print("Descrição:", tarefa["descricao"], "- Status:", tarefa["status"])
+        print("Descrição:", tarefa.descricao, "- Status:", tarefa.status)
 
 def concluir_tarefa(descricao):
     for tarefa in tarefas:
-        if tarefa["descricao"] == descricao:
-            tarefa["status"] = "Concluído"
+        if tarefa.descricao == descricao:
+            tarefa.concluir()
 
 while True:
     print("1-Adicionar 2-Listar 3-Concluir 4-Sair")
