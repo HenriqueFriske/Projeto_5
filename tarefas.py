@@ -12,14 +12,21 @@ def concluir_tarefa(descricao):
     for tarefa in tarefas:
         if tarefa["descricao"] == descricao:
             tarefa["status"] = "Concluído"
+
 while True:
     print("1-Adicionar 2-Listar 3-Concluir 4-Sair")
     opcao = input("Escolha: ")
-    if opcao == "1":
-        criar_tarefa()
-    elif opcao == "2":
-        listar_tarefas()
-    elif opcao == "3":
-        concluir_tarefa()
-    elif opcao == "4":
-        break
+    match opcao:
+        case "1":
+            descricao = input("Descrição: ")
+            status = input("Status (Pendente/Concluído): ")
+            criar_tarefa(descricao, status)
+        case "2":
+            listar_tarefas()
+        case "3":
+            descricao = input("Descrição da tarefa a concluir: ")
+            concluir_tarefa(descricao)
+        case "4":
+            break
+        case _:
+            print("Opção inválida.")
